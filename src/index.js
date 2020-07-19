@@ -44,12 +44,16 @@ function fetchBreeds () {
    };
 
    function filterBreeds (e){
+       const selection = e.target.value
        const dogBreedList = document.querySelectorAll('li.dog')
        dogBreedList.forEach(function(dogBreed) {
-           if (dogBreed.innerHTML[0] != e.target.value) {
+           if (selection == "all"){
+               dogBreed.hidden = false
+           } else { 
+               if (dogBreed.innerHTML[0] != selection) {
                dogBreed.hidden = true
            } else { dogBreed.hidden = false }
-       });
+       }});
    };
 
 document.addEventListener('DOMContentLoaded', function () {
